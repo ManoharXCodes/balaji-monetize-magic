@@ -8,15 +8,19 @@
 @layer base {
   :root {
     /* === CORE BRAND COLORS === */
-    --brand-deep-space: 263 89% 8%;
-    --brand-cosmic-purple: 267 83% 15%;
-    --brand-royal-violet: 271 77% 22%;
-    --brand-mystic-indigo: 275 71% 28%;
+    --brand-deep-space: 263 95% 4%;
+    --brand-cosmic-purple: 267 90% 8%;
+    --brand-royal-violet: 271 85% 12%;
+    --brand-mystic-indigo: 275 80% 16%;
     
     --brand-copper: 30 65% 45%;
     --brand-gold: 43 96% 56%;
     --brand-warm-copper: 25 75% 50%;
     --brand-bright-gold: 48 100% 67%;
+    
+    --success-green: 142 76% 36%;
+    --money-green: 120 100% 25%;
+    --dollar-green: 134 61% 41%;
     
     --brand-moon-white: 225 9% 98%;
     --brand-pearl: 210 20% 96%;
@@ -51,7 +55,7 @@
     --gradient-cosmic: linear-gradient(135deg, hsl(var(--brand-deep-space)), hsl(var(--brand-cosmic-purple)));
     --gradient-royal: linear-gradient(135deg, hsl(var(--brand-cosmic-purple)), hsl(var(--brand-royal-violet)));
     --gradient-gold: linear-gradient(135deg, hsl(var(--brand-copper)), hsl(var(--brand-gold)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-deep-space)) 0%, hsl(var(--brand-cosmic-purple)) 50%, hsl(var(--brand-royal-violet)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-deep-space)) 0%, hsl(var(--brand-cosmic-purple)) 30%, hsl(var(--brand-royal-violet)) 70%, hsl(var(--brand-mystic-indigo)) 100%);
     
     /* === SHADOWS & GLOWS === */
     --shadow-cosmic: 0 25px 50px -12px hsl(var(--brand-deep-space) / 0.8);
@@ -246,6 +250,39 @@
     50% { transform: translateY(-20px); }
   }
   
+  @keyframes dollarFloat {
+    0% {
+      transform: translateY(0px) rotate(0deg);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-30px) rotate(180deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0px) rotate(360deg);
+      opacity: 0.8;
+    }
+  }
+  
+  @keyframes dollarDrift {
+    0% {
+      transform: translateX(0px) translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateX(20px) translateY(-10px) rotate(90deg);
+    }
+    50% {
+      transform: translateX(-10px) translateY(-20px) rotate(180deg);
+    }
+    75% {
+      transform: translateX(-20px) translateY(-10px) rotate(270deg);
+    }
+    100% {
+      transform: translateX(0px) translateY(0px) rotate(360deg);
+    }
+  }
+  
   /* === GRADIENT TEXT === */
   .gradient-text {
     background: var(--gradient-gold);
@@ -261,5 +298,25 @@
   
   .container-custom {
     @apply max-w-6xl mx-auto px-6 md:px-8;
+  }
+  
+  /* === SCROLLING DOLLAR ANIMATIONS === */
+  .dollar-symbol {
+    @apply fixed text-4xl font-bold pointer-events-none z-40;
+    color: hsl(var(--dollar-green));
+    text-shadow: 0 0 20px hsl(var(--success-green)), 0 0 40px hsl(var(--money-green));
+    animation: dollarFloat 4s ease-in-out infinite;
+  }
+  
+  .dollar-symbol.drift {
+    animation: dollarDrift 6s ease-in-out infinite;
+  }
+  
+  .dollar-symbol.fade-out {
+    animation: fadeOut 1s ease-out forwards;
+  }
+  
+  @keyframes fadeOut {
+    to { opacity: 0; transform: scale(0.5); }
   }
 }
