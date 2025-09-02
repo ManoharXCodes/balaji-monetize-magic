@@ -1,4 +1,11 @@
+import React, { useEffect } from 'react';
+import { initSectionAnimations } from '@/animations/sectionAnimations';
+
 const AboutSection = () => {
+  useEffect(() => {
+    initSectionAnimations();
+  }, []);
+
   return (
     <section id="about" className="section-padding relative overflow-hidden">
       <div className="container-custom">

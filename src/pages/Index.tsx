@@ -4,7 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
-import ScrollingDollars from "@/components/ScrollingDollars";
+import AnimatedDollars from "@/components/AnimatedDollars";
 
 const Index = () => {
   const sections = [
@@ -17,7 +17,7 @@ const Index = () => {
   return (
     <main className="min-h-screen font-sans relative">
       <Navigation sections={sections} />
-      <ScrollingDollars />
+      <AnimatedDollars />
       <HeroSection />
       <AboutSection />
       <ServicesSection />
