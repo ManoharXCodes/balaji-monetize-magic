@@ -2,95 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
+/* YouTube Monetization Specialist Design System */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* === CORE BRAND COLORS === */
+    --brand-deep-space: 263 89% 8%;
+    --brand-cosmic-purple: 267 83% 15%;
+    --brand-royal-violet: 271 77% 22%;
+    --brand-mystic-indigo: 275 71% 28%;
+    
+    --brand-copper: 30 65% 45%;
+    --brand-gold: 43 96% 56%;
+    --brand-warm-copper: 25 75% 50%;
+    --brand-bright-gold: 48 100% 67%;
+    
+    --brand-moon-white: 225 9% 98%;
+    --brand-pearl: 210 20% 96%;
+    --brand-silver: 220 14% 85%;
+    --brand-cosmic-gray: 225 15% 65%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* === SEMANTIC COLOR TOKENS === */
+    --background: var(--brand-deep-space);
+    --foreground: var(--brand-moon-white);
+    
+    --primary: var(--brand-copper);
+    --primary-foreground: var(--brand-moon-white);
+    --primary-glow: var(--brand-warm-copper);
+    
+    --secondary: var(--brand-cosmic-purple);
+    --secondary-foreground: var(--brand-moon-white);
+    
+    --accent: var(--brand-gold);
+    --accent-foreground: var(--brand-deep-space);
+    
+    --muted: var(--brand-royal-violet);
+    --muted-foreground: var(--brand-silver);
+    
+    --card: var(--brand-cosmic-purple);
+    --card-foreground: var(--brand-moon-white);
+    
+    --border: var(--brand-mystic-indigo);
+    --input: var(--brand-mystic-indigo);
+    --ring: var(--brand-copper);
+    
+    /* === GRADIENTS === */
+    --gradient-cosmic: linear-gradient(135deg, hsl(var(--brand-deep-space)), hsl(var(--brand-cosmic-purple)));
+    --gradient-royal: linear-gradient(135deg, hsl(var(--brand-cosmic-purple)), hsl(var(--brand-royal-violet)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--brand-copper)), hsl(var(--brand-gold)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-deep-space)) 0%, hsl(var(--brand-cosmic-purple)) 50%, hsl(var(--brand-royal-violet)) 100%);
+    
+    /* === SHADOWS & GLOWS === */
+    --shadow-cosmic: 0 25px 50px -12px hsl(var(--brand-deep-space) / 0.8);
+    --shadow-copper: 0 10px 30px -10px hsl(var(--brand-copper) / 0.4);
+    --shadow-gold: 0 0 40px hsl(var(--brand-gold) / 0.3);
+    --glow-copper: 0 0 20px hsl(var(--brand-copper) / 0.6);
+    --glow-text: 0 0 10px hsl(var(--brand-copper) / 0.8);
+    
+    /* === SPACING & SIZING === */
+    --radius: 1rem;
+    --radius-lg: 1.5rem;
+    --radius-xl: 2rem;
+    
+    /* === ANIMATIONS === */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 }
 
@@ -98,8 +75,191 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
+  
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* === STARRY BACKGROUND === */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, hsl(var(--brand-copper)), transparent),
+      radial-gradient(2px 2px at 40px 70px, hsl(var(--brand-gold)), transparent),
+      radial-gradient(1px 1px at 90px 40px, hsl(var(--brand-moon-white)), transparent),
+      radial-gradient(1px 1px at 130px 80px, hsl(var(--brand-copper)), transparent),
+      radial-gradient(2px 2px at 160px 30px, hsl(var(--brand-gold)), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: twinkle 20s linear infinite;
+    opacity: 0.6;
+    z-index: -1;
+  }
+  
+  @keyframes twinkle {
+    0% { transform: translateY(0) translateX(0); }
+    100% { transform: translateY(-100px) translateX(-100px); }
+  }
+}
+
+@layer components {
+  /* === HERO TEXT EFFECTS === */
+  .hero-title {
+    @apply text-6xl md:text-8xl font-black tracking-tight;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: var(--glow-text);
+    filter: drop-shadow(var(--glow-text));
+  }
+  
+  .hero-subtitle {
+    @apply text-xl md:text-3xl font-medium text-foreground;
+    text-shadow: 0 2px 4px hsl(var(--brand-deep-space) / 0.8);
+  }
+  
+  /* === SECTION HEADINGS === */
+  .section-heading {
+    @apply text-4xl md:text-5xl font-bold text-center mb-12 transition-colors duration-300;
+    color: hsl(var(--brand-copper));
+    text-shadow: var(--glow-text);
+  }
+  
+  .section-heading:hover {
+    color: hsl(var(--brand-gold));
+    filter: drop-shadow(var(--shadow-gold));
+  }
+  
+  /* === CARDS === */
+  .glass-card {
+    @apply backdrop-blur-lg rounded-2xl border transition-all duration-500;
+    background: linear-gradient(135deg, 
+      hsl(var(--brand-cosmic-purple) / 0.3) 0%, 
+      hsl(var(--brand-royal-violet) / 0.2) 100%);
+    border: 1px solid hsl(var(--brand-mystic-indigo) / 0.5);
+    box-shadow: var(--shadow-cosmic);
+  }
+  
+  .glass-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-cosmic), var(--shadow-copper);
+    border-color: hsl(var(--brand-copper) / 0.7);
+  }
+  
+  .service-card {
+    @apply glass-card p-8 text-center cursor-pointer;
+  }
+  
+  .testimonial-card {
+    @apply glass-card p-6;
+  }
+  
+  /* === NAVIGATION === */
+  .nav-link {
+    @apply relative font-medium text-foreground transition-all duration-300;
+    text-shadow: 0 1px 2px hsl(var(--brand-deep-space) / 0.8);
+  }
+  
+  .nav-link::after {
+    @apply absolute left-0 -bottom-1 h-0.5 w-0 transition-all duration-300;
+    content: '';
+    background: hsl(var(--brand-copper));
+    box-shadow: var(--glow-copper);
+  }
+  
+  .nav-link:hover {
+    color: hsl(var(--brand-copper));
+    text-shadow: var(--glow-text);
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  /* === BUTTONS === */
+  .btn-primary {
+    @apply px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform;
+    background: var(--gradient-gold);
+    color: hsl(var(--brand-deep-space));
+    box-shadow: var(--shadow-copper);
+    text-shadow: none;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-gold), var(--shadow-copper);
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 rounded-lg font-medium border transition-all duration-300;
+    background: transparent;
+    border-color: hsl(var(--brand-copper));
+    color: hsl(var(--brand-copper));
+  }
+  
+  .btn-secondary:hover {
+    background: hsl(var(--brand-copper));
+    color: hsl(var(--brand-moon-white));
+    box-shadow: var(--glow-copper);
+  }
+  
+  /* === ANIMATIONS === */
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  /* === GRADIENT TEXT === */
+  .gradient-text {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* === RESPONSIVE SPACING === */
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+  
+  .container-custom {
+    @apply max-w-6xl mx-auto px-6 md:px-8;
   }
 }

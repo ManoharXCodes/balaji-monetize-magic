@@ -1,13 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navigation from "@/components/Navigation";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
+  const sections = [
+    { id: "about", label: "About Me" },
+    { id: "services", label: "Services" },
+    { id: "testimonials", label: "Testimonials" },
+    { id: "contact", label: "Contact Me" }
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main className="min-h-screen font-sans">
+      <Navigation sections={sections} />
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <TestimonialsSection />
+      <ContactSection />
+    </main>
   );
 };
 
